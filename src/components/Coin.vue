@@ -61,19 +61,24 @@ div {
 }
 
 .toHeads {
-  animation: flipToHeads 0.8s cubic-bezier(0.1, 0.3, 0.9, 0.7);
+  animation: flipToHeads 0.5s cubic-bezier(0.1, 0.3, 0.9, 0.7);
 }
 
 .toTails {
-  animation: flipToTails 0.8s cubic-bezier(0.1, 0.3, 0.9, 0.7);
+  animation: flipToTails 0.5s cubic-bezier(0.1, 0.3, 0.9, 0.7);
 }
 
 @keyframes flipToHeads {
-  0% {
-    transform: scale(1);
+  25% {
+    transform: scale(1.25) rotateY(180deg);
+    background-image: url("../assets/CoinTails.png");
   }
   50% {
-    transform: scale(1.5) rotateY(360deg) translateY(-20px);
+    transform: scale(1.5) rotateY(360deg);
+    background-image: url("../assets/Coin.png");
+  }
+  75% {
+    transform: scale(1.25) rotateY(540deg);
     background-image: url("../assets/CoinTails.png");
   }
   100% {
@@ -83,11 +88,16 @@ div {
 }
 
 @keyframes flipToTails {
-  0% {
-    transform: scale(1);
+  25% {
+    transform: scale(1.25) rotateY(180deg);
+    background-image: url("../assets/Coin.png");
   }
   50% {
-    transform: scale(1.5) rotateY(360deg) translateY(-20px);
+    transform: scale(1.5) rotateY(360deg);
+    background-image: url("../assets/CoinTails.png");
+  }
+  75% {
+    transform: scale(1.25) rotateY(540deg);
     background-image: url("../assets/Coin.png");
   }
   100% {
