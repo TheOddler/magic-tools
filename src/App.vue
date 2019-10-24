@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Counter label="Test" />
-    <Counter label="Test" />
+    <Counter count="20" />
+    <Counter count="10" />
     <Coin />
     <Coin />
     <Coin />

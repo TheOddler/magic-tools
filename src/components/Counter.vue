@@ -5,12 +5,10 @@
 <script>
 export default {
   data: function() {
-    return {
-      count: 0
-    };
+    return {};
   },
   props: {
-    label: String
+    count: Number
   },
   methods: {
     onSwipe: function(event) {
