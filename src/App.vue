@@ -2,16 +2,23 @@
   <div id="app">
     <Counter label="Test" />
     <Counter label="Test" />
+    <Coin />
+    <Coin />
+    <Coin />
+    <Coin />
+    <Coin />
   </div>
 </template>
 
 <script>
 import Counter from "./components/Counter.vue";
+import Coin from "./components/Coin.vue";
 
 export default {
   name: "app",
   components: {
-    Counter
+    Counter,
+    Coin
   }
 };
 </script>
