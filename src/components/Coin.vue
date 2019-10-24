@@ -69,39 +69,63 @@ div {
 }
 
 @keyframes flipToHeads {
+  12.5% {
+    transform: scale(0, 1.125);
+  }
   25% {
-    transform: scale(1.25) rotateY(180deg);
+    transform: scale(1, 1.25);
     background-image: url("../assets/CoinTails.png");
+  }
+  37.5% {
+    transform: scale(0, 1.375);
   }
   50% {
-    transform: scale(1.5) rotateY(360deg);
+    transform: scale(1, 1.5);
     background-image: url("../assets/Coin.png");
   }
+  62.5% {
+    transform: scale(0, 1.375);
+  }
   75% {
-    transform: scale(1.25) rotateY(540deg);
+    transform: scale(1, 1.25);
     background-image: url("../assets/CoinTails.png");
   }
+  87.5% {
+    transform: scale(0, 1.125);
+  }
   100% {
-    transform: scale(1) rotateY(720deg);
+    transform: scale(1, 1);
     background-image: url("../assets/Coin.png");
   }
 }
 
 @keyframes flipToTails {
+  12.5% {
+    transform: scale(0, 1.125);
+  }
   25% {
-    transform: scale(1.25) rotateY(180deg);
+    transform: scale(1, 1.25);
     background-image: url("../assets/Coin.png");
+  }
+  37.5% {
+    transform: scale(0, 1.375);
   }
   50% {
-    transform: scale(1.5) rotateY(360deg);
+    transform: scale(1, 1.5);
     background-image: url("../assets/CoinTails.png");
   }
+  62.5% {
+    transform: scale(0, 1.375);
+  }
   75% {
-    transform: scale(1.25) rotateY(540deg);
+    transform: scale(1, 1.25);
     background-image: url("../assets/Coin.png");
   }
+  87.5% {
+    transform: scale(0, 1.125);
+  }
   100% {
-    transform: scale(1) rotateY(720deg);
+    transform: scale(1, 1);
     background-image: url("../assets/CoinTails.png");
   }
 }
