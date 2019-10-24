@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <Counter count="20" />
-    <Counter count="10" />
+    <Counter :count="20" :showZero="true" />
+    <Counter :count="10" />
+    <Counter />
+    <Counter :showZero="false" />
+    <Counter :showZero="true" />
     <Coin />
     <Coin />
     <Coin />

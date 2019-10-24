@@ -1,5 +1,5 @@
 <template>
-  <div v-hammer:swipe="onSwipe">{{ count }}</div>
+  <div v-hammer:swipe="onSwipe">{{ !showZero && count == 0 ? "" : count }}</div>
 </template>
 
 <script>
@@ -8,7 +8,14 @@ export default {
     return {};
   },
   props: {
-    count: Number
+    count: {
+      type: Number,
+      default: 0
+    },
+    showZero: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     onSwipe: function(event) {
