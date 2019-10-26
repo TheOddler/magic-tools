@@ -5,6 +5,7 @@
     <Coin />
     <Die :sides="6" />
     <Die :sides="20" />
+    <FullscreenToggle id="fullscreenToggle" />
     <PlayerField />
   </div>
 </template>
@@ -13,6 +14,7 @@
 import PlayerField from "./components/PlayerField.vue";
 import Coin from "./components/Coin.vue";
 import Die from "./components/Die.vue";
+import FullscreenToggle from "./components/FullscreenToggle.vue";
 
 export default {
   name: "app",
@@ -24,7 +26,8 @@ export default {
   components: {
     PlayerField,
     Coin,
-    Die
+    Die,
+    FullscreenToggle
   },
   created() {
     this.updateScale();
@@ -52,6 +55,7 @@ export default {
 <style>
 body {
   overflow: hidden;
+  background-color: black;
 }
 
 #app {
@@ -66,5 +70,13 @@ body {
   height: 654px;
 
   transform-origin: top left;
+
+  margin: auto;
+}
+
+#fullscreenToggle {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 </style>
