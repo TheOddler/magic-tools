@@ -11,9 +11,11 @@ export default {
     toggleFullscreen: function() {
       if (this.isFullscreen) {
         document.exitFullscreen();
+        this.vueInsomnia().off();
         this.isFullscreen = false;
       } else {
         document.body.requestFullscreen();
+        this.vueInsomnia().on();
         this.isFullscreen = true;
       }
     }

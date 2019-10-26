@@ -1,8 +1,10 @@
 import Vue from 'vue'
-import { VueHammer } from 'vue2-hammer'
 import App from './App.vue'
+import { VueHammer } from 'vue2-hammer'
+import vueInsomnia from "vue-insomnia";
 
 Vue.use(VueHammer);
+Vue.use(vueInsomnia);
 
 Vue.config.productionTip = false
 
