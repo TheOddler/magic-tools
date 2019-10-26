@@ -70,8 +70,6 @@ body {
   height: 654px;
 
   transform-origin: top left;
-
-  margin: auto;
 }
 
 #fullscreenToggle {
