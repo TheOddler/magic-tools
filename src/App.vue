@@ -50,6 +50,7 @@ export default {
 
 <style>
 body {
+  margin: 0;
   overflow: hidden;
   background-color: black;
 }
