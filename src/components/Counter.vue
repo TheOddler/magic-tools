@@ -1,5 +1,9 @@
 <template>
-  <div v-hammer:swipe="onSwipe">{{ !showZero && count == 0 ? "" : count }}</div>
+  <div
+    v-hammer:swipe="onSwipe"
+    @click="add"
+    @contextmenu.prevent="subtract"
+  >{{ !showZero && count == 0 ? "" : count }}</div>
 </template>
 
 <script>
@@ -14,18 +18,24 @@ export default {
     },
     showZero: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   methods: {
     onSwipe: function(event) {
       if (event.direction == 8) {
         //up
-        this.count++;
+        this.add();
       } else if (event.direction == 16) {
         //down
-        this.count--;
+        this.subtract();
       }
+    },
+    add() {
+      this.count++;
+    },
+    subtract() {
+      this.count--;
     }
   }
 };
@@ -34,7 +44,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div {
-  background-color: red;
-  height: 150px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /*Debug */
+  background-color: rgba(255, 0, 0, 0.3);
 }
 </style>
