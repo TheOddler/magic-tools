@@ -39,11 +39,7 @@ export default {
     window.removeEventListener("resize", this.updateScale);
   },
   methods: {
-    updateScale(event) {
-      window.console.log(
-        "resized: " + window.innerWidth + "; " + window.innerHeight
-      );
-      window.console.log(event);
+    updateScale() {
       var xScale = window.innerWidth / 1006;
       var yScale = window.innerHeight / 654;
       this.scale = Math.min(xScale, yScale);
