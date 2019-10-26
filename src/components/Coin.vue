@@ -61,12 +61,12 @@ div {
 }
 
 .toHeads {
-  animation: flipToHeads 0.5s cubic-bezier(0.1, 0.3, 0.9, 0.7);
+  animation: flipToHeads 0.3s cubic-bezier(0.1, 0.3, 0.9, 0.7);
   z-index: 1000;
 }
 
 .toTails {
-  animation: flipToTails 0.5s cubic-bezier(0.1, 0.3, 0.9, 0.7);
+  animation: flipToTails 0.3s cubic-bezier(0.1, 0.3, 0.9, 0.7);
   z-index: 1000;
 }
 
