@@ -45,6 +45,7 @@ export default {
     },
     reset() {
       this.count = this.startCount;
+      navigator.vibrate(50);
     }
   }
 };
