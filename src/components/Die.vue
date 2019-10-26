@@ -1,8 +1,8 @@
 <template>
   <div
-    v-hammer:tap="randomizeAnimated"
-    v-on:animationend="onAnimationEnd"
-    :class="dieClass"
+    v-hammer:tap="throwDie"
+    @animationend="onAnimationEnd"
+    :class="[dieClass, throwing ? 'throwing' : '']"
   >{{ number }}</div>
 </template>
 
@@ -11,17 +11,14 @@ export default {
   data() {
     return {
       number: 0,
-      interval: false
+      interval: false,
+      throwing: false
     };
   },
   props: {
     sides: {
       type: Number,
       default: 6
-    },
-    animationSteps: {
-      type: Number,
-      default: 10
     }
   },
   created() {
@@ -41,26 +38,23 @@ export default {
       }
     },
     onAnimationEnd() {
-      this.flipping = false;
+      this.throwing = false;
+      clearInterval(this.interval);
     },
     randomize() {
       this.number = Math.floor(Math.random() * this.sides) + 1;
     },
-    randomizeAnimated() {
-      clearInterval(this.interval);
+    throwDie() {
+      if (!this.throwing) {
+        this.throwing = true;
+        clearInterval(this.interval);
 
-      var self = this;
-      var count = this.animationSteps;
-      var handler = function() {
-        self.randomize();
-        count--;
-        if (count == 0) {
-          clearInterval(self.interval);
-          self.interval = false;
-        }
-        window.console.log(count);
-      };
-      this.interval = setInterval(handler, 50, 500);
+        var self = this;
+        var handler = function() {
+          self.randomize();
+        };
+        this.interval = setInterval(handler, 50);
+      }
     }
   }
 };
@@ -84,5 +78,19 @@ div {
 
 .die20 {
   background-image: url("../assets/Die20.png");
+}
+
+.throwing {
+  animation: throw 0.3s cubic-bezier(0.1, 0.3, 0.9, 0.7);
+  z-index: 1000;
+}
+
+@keyframes throw {
+  50% {
+    transform: scale(1.5) rotate(360deg);
+  }
+  100% {
+    transform: scale(1) rotate(720deg);
+  }
 }
 </style>
