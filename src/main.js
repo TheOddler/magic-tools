@@ -6,6 +6,10 @@ Vue.use(VueHammer);
 
 Vue.config.productionTip = false
 
+VueHammer.config.press = {
+  time: 601
+};
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')

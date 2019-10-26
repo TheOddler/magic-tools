@@ -1,15 +1,18 @@
 <template>
   <div
     v-hammer:swipe="onSwipe"
-    @click="add"
+    v-hammer:tap="add"
+    v-hammer:press="reset"
     @contextmenu.prevent="subtract"
   >{{ !showZero && count == 0 ? "" : count }}</div>
 </template>
 
 <script>
 export default {
-  data: function() {
-    return {};
+  data() {
+    return {
+      startCount: 0
+    };
   },
   props: {
     count: {
@@ -21,8 +24,11 @@ export default {
       default: true
     }
   },
+  created() {
+    this.startCount = this.count;
+  },
   methods: {
-    onSwipe: function(event) {
+    onSwipe(event) {
       if (event.direction == 8) {
         //up
         this.add();
@@ -36,6 +42,9 @@ export default {
     },
     subtract() {
       this.count--;
+    },
+    reset() {
+      this.count = this.startCount;
     }
   }
 };
@@ -49,8 +58,5 @@ div {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /*Debug */
-  background-color: rgba(255, 0, 0, 0.3);
 }
 </style>
