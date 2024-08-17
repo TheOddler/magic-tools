@@ -4,13 +4,16 @@
     v-hammer:tap="add"
     v-hammer:press="reset"
     @contextmenu.prevent="subtract"
-  >{{ !showZero && count == 0 ? "" : count }}</div>
+  >
+    {{ !showZero && internalCount == 0 ? "" : internalCount }}
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
+      internalCount: this.count,
       startCount: 0
     };
   },
@@ -24,27 +27,35 @@ export default {
       default: true
     }
   },
+  watch: {
+    count(newVal) {
+      this.internalCount = newVal;
+    }
+  },
   created() {
     this.startCount = this.count;
   },
   methods: {
     onSwipe(event) {
       if (event.direction == 8) {
-        //up
+        // up
         this.add();
       } else if (event.direction == 16) {
-        //down
+        // down
         this.subtract();
       }
     },
     add() {
-      this.count++;
+      this.internalCount++;
+      this.$emit('update:count', this.internalCount); // Emit the updated value to the parent
     },
     subtract() {
-      this.count--;
+      this.internalCount--;
+      this.$emit('update:count', this.internalCount);
     },
     reset() {
-      this.count = this.startCount;
+      this.internalCount = this.startCount;
+      this.$emit('update:count', this.internalCount);
       navigator.vibrate(50);
     }
   }
