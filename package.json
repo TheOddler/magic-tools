@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.38.0",
-    "vue": "^3.4.38",
+    "vue": "^2.7.16",
     "vue-insomnia": "^0.1.0",
     "vue2-hammer": "^2.1.2"
   },
