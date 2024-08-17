@@ -40,9 +40,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
-    - run: mv public public-vue
-    - run: mv dist public
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
       with:
-        path: ./public
+        path: ./dist
